@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
 
+
     const handleUpClick = () => {
         // console.log('Uppercase is clicked' + text);
         let newText = text.toUpperCase()
@@ -61,12 +62,12 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'light' ? 'white' : '#101010', color: props.mode === 'dark' ? 'white' : 'black' }} id="myBox" rows="6"></textarea>
 
                 </div>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleLowerClick}>Convert to LowerCase</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Text</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleReverseClick}>Reverse Text</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>Copy Text</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to UpperCase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleLowerClick}>Convert to LowerCase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleReverseClick}>Reverse Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 
             </div>
 
@@ -84,7 +85,7 @@ export default function TextForm(props) {
                 }).length} minutes read</p>
 
                 <h3>Preview</h3>
-                <p>{text.length>0?text:"Enter some text to preview here"}</p>
+                <p>{text.length>0?text:"No text to preview"}</p>
 
             </div>
         </>
